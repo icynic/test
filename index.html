@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    <style>#}
+{#        #live2dcanvas {#}
+{#    border: 0 !important;#}
+{#}#}
+{#    </style>#}
+
+</head>
+<body>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init({"display": {
+        "superSample": 2,
+        "width": 200,
+        "height": 400,
+             "position": "right",
+                 "hOffset": 0,
+        "vOffset": 0
+          }
+     });
+</script>
+
+</body>
+</html>
